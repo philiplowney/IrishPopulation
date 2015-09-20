@@ -1,0 +1,87 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<script src="js/three.min.js"></script>
+		<script src="js/countyCoordinates.js"></script>
+		<script src="js/ireland_pop_history.js"></script>
+		<title>Republic of Ireland's Population History</title>
+		<style>
+			h1
+			{
+				margin: 0 0 5px 0;
+				font-size: 30px;
+				text-align: center;
+			}
+			#year-area
+			{
+				width: 370px;
+				height: 20px;
+				margin-top: 5px;
+				font-size: 15px;
+			}
+			#page-container
+			{
+				margin-left: auto; margin-right: auto; width: 1000px;
+			}
+			#canvas-container
+			{
+				width: 100%;
+				height: 500px;
+				border: 2px solid black;
+				border-radius: 15px;
+			}
+			#selectedYear
+			{
+				height: 30px;
+				padding: 0px;
+				font-size: 30px;
+				margin-left: 75px;
+				text-align: center;
+				width: 100px;
+				border: 0;
+			}
+			#loadingArea
+			{
+				margin-left: auto; margin-right: auto; width: 300px; margin-top: -350px;
+			}
+			button
+			{
+				height: 30px;
+				width: 30px;
+				margin-bottom: 10px;
+			}
+		</style>
+	</head>
+	
+	<body onload="load();" style="font-family: verdana">
+		
+		<div id="page-container">
+			<h1>Ireland's Population History</h1>
+			
+			<div id="canvas-container">
+				<div id="year-wrapper" style="width: 260px; margin-left: 20px; margin-bottom: -50px; visibility: hidden;">
+					<input type="text" id="selectedYear" value="0000"/>
+					<div id="year-area">
+						<p style="float: left; margin: 0; padding: 0 10px 0 0;font-style: italic;">1841</p>
+						<div id="slider" style="width: 140px;float: left; margin: 0; padding: 0;"></div>
+						<p style="float: left; margin: 0; padding: 0 0 0 15px;font-style: italic;">2011</p>
+					</div>
+				</div>
+				
+			<div id="nav-controls" style="visibility: hidden; height: 30px; width: 100px; margin-top: 10px; margin-bottom: -560px; margin-right: 10px; float: right;">
+				<button id="rotateLeftButton" style="float: left"/>
+				<button id="rotateRightButton" style="float: right"/>
+			</div>
+				<canvas id="ireland-container" />
+			</div>
+			<div id="loadingArea" >
+				<div style="width: 100%; font-size: 30px; text-align: center; margin-bottom: 20px;">Loading</div>
+				<input type="text" id="progressText" style="border: 0; font-weight: bold; width: 100%; height: 20px; text-align: center;" />
+				<div id="progressBar" style="height: 10px"/>
+			</div>
+		</div>
+			<div style="background-image: url('images/preview.png'); width: 200px; height: 200px; display: none;"/>
+	</body>
+</html>
